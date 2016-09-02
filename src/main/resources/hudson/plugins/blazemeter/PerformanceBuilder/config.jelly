@@ -19,7 +19,7 @@
     </f:entry>
     <f:entry title="${%BlazeMeter Test}:">
         <input id="search-box" class="setting-input" style="width:10em;" type="text"/>
-        <f:select style="width:22em;" field="testId">
+        <f:select id="testId" style="width:22em;" field="testId">
         </f:select>
     </f:entry>
     <f:entry title="${%Server url:}">
@@ -46,13 +46,7 @@
             <f:textbox field="sessionProperties"></f:textbox>
         </f:entry>
     </f:advanced>
-    <!--<script>
-        var descriptor = <st:bind value="${descriptor}"/>
-        var apiKey = document.getElementsByName('_.jobApiKey')[0].value
-        var testId = document.getElementsByName('_.testId')[0].value
-        &lt;!&ndash;var tests = descriptor.doFillTestIdItems(apiKey,'12345')&ndash;&gt;
-        var tests = descriptor.doFillTestIdItems(apiKey,testId);
-    </script>
     <script src="${rootUrl}/plugin/PerformanceBuilder/js/jquery-3.1.0.min.js"></script>
-    <script src="${rootUrl}/plugin/PerformanceBuilder/js/search.js"></script>-->
+    <script src="${rootUrl}/plugin/PerformanceBuilder/js/search-filter.js"></script>
+    <script src="${rootUrl}/plugin/PerformanceBuilder/js/search.js"></script>
 </j:jelly>
