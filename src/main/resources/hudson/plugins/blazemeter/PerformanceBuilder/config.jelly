@@ -18,7 +18,7 @@
         <f:select style="width:32em;" field="jobApiKey"/>
     </f:entry>
     <f:entry title="${%BlazeMeter Test}:">
-        <input id="search-box" class="setting-input" style="width:10em;" type="text"/>
+        <input id="search-box" class="setting-input" style="width:10em;" onkeyup="search()" type="text"/>
         <f:select id="testId" style="width:22em;" field="testId">
         </f:select>
     </f:entry>
@@ -49,4 +49,10 @@
     <script src="${rootUrl}/plugin/PerformanceBuilder/js/jquery-3.1.0.min.js"></script>
     <script src="${rootUrl}/plugin/PerformanceBuilder/js/search-filter.js"></script>
     <script src="${rootUrl}/plugin/PerformanceBuilder/js/search.js"></script>
+    <script>
+        function search() {
+        var x = document.getElementById("search-box");
+        x.value = x.value.toUpperCase();
+        }
+    </script>
 </j:jelly>
