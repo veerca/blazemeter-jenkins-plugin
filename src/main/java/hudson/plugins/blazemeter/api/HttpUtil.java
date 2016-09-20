@@ -67,7 +67,7 @@ public class HttpUtil {
             this.proxy = new HttpHost(proxy.name, proxy.port);
             String proxyUser = proxy.getUserName();
             String proxyPass = proxy.getPassword();
-            if (!proxyUser.isEmpty() && !proxyPass.isEmpty()) {
+            if (!StringUtils.isBlank(proxyUser)&& !StringUtils.isBlank(proxyPass)) {
                 CredentialsProvider credsProvider = new BasicCredentialsProvider();
                 credsProvider.setCredentials(
                         new AuthScope(proxy.name, proxy.port),
