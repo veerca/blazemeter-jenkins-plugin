@@ -181,7 +181,8 @@ public class BlazeMeterPerformanceBuilderDescriptor extends BuildStepDescriptor<
     @Override
     public boolean configure(StaplerRequest req, JSONObject formData) throws FormException {
         String blazeMeterURL = formData.optString("blazeMeterURL");
-        this.blazeMeterURL=blazeMeterURL.isEmpty()?Constants.A_BLAZEMETER_COM:blazeMeterURL;
+        this.blazeMeterURL = blazeMeterURL.isEmpty() ? Constants.A_BLAZEMETER_COM :
+                blazeMeterURL.substring(0, blazeMeterURL.length() - (blazeMeterURL.endsWith("/") ? 1 : 0));
         save();
         return true;
     }
