@@ -37,7 +37,7 @@ public interface Api {
 
     int getTestMasterStatusCode(String id);
 
-    HashMap<String,String> startTest(String testId, TestType testType) throws JSONException;
+    HashMap<String,String> startTest(String testId, boolean collection) throws JSONException;
 
     int getTestCount() throws JSONException, IOException, ServletException;
 

@@ -117,16 +117,14 @@ public class ApiV3Impl implements Api {
     }
 
     @Override
-    public synchronized HashMap<String, String> startTest(String testId, TestType testType) throws JSONException {
+    public synchronized HashMap<String, String> startTest(String testId, boolean collection) throws JSONException{
         if (StringUtils.isBlank(apiKey) & StringUtils.isBlank(testId)) return null;
         String url = "";
         HashMap<String, String> startResp = new HashMap<String, String>();
-        switch (testType) {
-            case multi:
-                url = this.urlManager.collectionStart(APP_KEY, apiKey, testId);
-                break;
-            default:
-                url = this.urlManager.testStart(APP_KEY, apiKey, testId);
+        if(collection){
+            url = this.urlManager.collectionStart(APP_KEY, apiKey, testId);
+        }else {
+            url = this.urlManager.testStart(APP_KEY, apiKey, testId);
         }
         JSONObject jo = this.bzmhc.response(url, null, Method.POST, JSONObject.class, null);
         JSONObject result = null;

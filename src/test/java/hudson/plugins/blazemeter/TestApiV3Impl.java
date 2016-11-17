@@ -104,7 +104,7 @@ public class TestApiV3Impl {
     public void startTest_http() throws JSONException {
         blazemeterApiV3 = new ApiV3Impl(TestConstants.MOCKED_USER_KEY_VALID,
                 TestConstants.mockedApiUrl,MockedAPI.proxyConfig);
-        Assert.assertEquals(blazemeterApiV3.startTest(TestConstants.TEST_MASTER_ID, TestType.http).get(JsonConsts.ID)
+        Assert.assertEquals(blazemeterApiV3.startTest(TestConstants.TEST_MASTER_ID, false).get(JsonConsts.ID)
                 , "15102806");
     }
 
@@ -112,7 +112,7 @@ public class TestApiV3Impl {
     public void startTest_jmeter() throws JSONException {
         blazemeterApiV3 = new ApiV3Impl(TestConstants.MOCKED_USER_KEY_VALID,
                 TestConstants.mockedApiUrl,MockedAPI.proxyConfig);
-        Assert.assertEquals(blazemeterApiV3.startTest(TestConstants.TEST_MASTER_ID, TestType.jmeter).get(JsonConsts.ID),
+        Assert.assertEquals(blazemeterApiV3.startTest(TestConstants.TEST_MASTER_ID, false).get(JsonConsts.ID),
                 "15102806");
     }
 
@@ -120,7 +120,7 @@ public class TestApiV3Impl {
     public void startTest_followme() throws JSONException {
         blazemeterApiV3 = new ApiV3Impl(TestConstants.MOCKED_USER_KEY_VALID,
                 TestConstants.mockedApiUrl,MockedAPI.proxyConfig);
-        Assert.assertEquals(blazemeterApiV3.startTest(TestConstants.TEST_MASTER_ID, TestType.followme).get(JsonConsts.ID),
+        Assert.assertEquals(blazemeterApiV3.startTest(TestConstants.TEST_MASTER_ID, false).get(JsonConsts.ID),
                 "15102806");
     }
 
@@ -128,7 +128,7 @@ public class TestApiV3Impl {
     public void startTest_multi() throws JSONException {
         blazemeterApiV3 = new ApiV3Impl(TestConstants.MOCKED_USER_KEY_VALID,
                 TestConstants.mockedApiUrl,MockedAPI.proxyConfig);
-        Assert.assertEquals(blazemeterApiV3.startTest(TestConstants.TEST_MASTER_ID, TestType.multi).get(JsonConsts.ID),
+        Assert.assertEquals(blazemeterApiV3.startTest(TestConstants.TEST_MASTER_ID, true).get(JsonConsts.ID),
                 "15105877");
     }
 

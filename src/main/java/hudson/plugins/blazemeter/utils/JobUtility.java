@@ -14,6 +14,7 @@
 
 package hudson.plugins.blazemeter.utils;
 
+import com.google.common.collect.LinkedHashMultimap;
 import hudson.EnvVars;
 import hudson.FilePath;
 import hudson.model.Result;
@@ -615,4 +616,29 @@ public class JobUtility {
             }
         }
     }
+
+
+    public static boolean collection(String testId,String apiKey,String serverUrl) throws Exception{
+        boolean exists=false;
+        boolean collection=false;
+
+        Api api = new ApiV3Impl(apiKey,serverUrl);
+        LinkedHashMultimap tests = api.getTestsMultiMap();
+        Set<Map.Entry> entries = tests.entries();
+        for (Map.Entry e : entries) {
+            int point = ((String) e.getValue()).indexOf(".");
+            if (testId.equals(((String) e.getValue()).substring(0,point))) {
+                collection = (((String) e.getValue()).substring(point+1)).contains("multi");
+                exists=true;
+            }
+            if (collection) {
+                break;
+            }
+        }
+        if(!exists){
+            throw new Exception("Test with test id = "+testId+" is not present on server");
+        }
+        return collection;
+    }
+
 }
